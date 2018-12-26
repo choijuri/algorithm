@@ -1,5 +1,5 @@
 
-public class algorithm01 {
+public class Algorithm01 {
 
 /*
 제한 사항
