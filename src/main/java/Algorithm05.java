@@ -1,3 +1,4 @@
+import java.util.*;
 public class Algorithm05 {
 /* 자릿수 더하기 https://programmers.co.kr/learn/courses/30/lessons/12931?language=java
 
@@ -12,9 +13,6 @@ public class Algorithm05 {
 
 
 */
-
-
-import java.util.*;
 
     public class Solution {
         public int solution(int n) {
