@@ -8,3 +8,5 @@
 2018.12.27 Algorithm08 나누어 떨어지는 숫자 배열  https://programmers.co.kr/learn/courses/30/lessons/12910            
 2019.01.08 Algorithm09 평균구하기 https://programmers.co.kr/learn/courses/30/lessons/12944?language=java                            
 2019.01.13 Algorithm10 쇠막대기  https://programmers.co.kr/learn/courses/30/lessons/42585?language=java
+2019.01.22 Algorithm11 문자열정수로 바꾸기  https://programmers.co.kr/learn/courses/30/lessons/12925?language=java
+2019.01.23 Algorithm12 가운데 글자 가져오기   https://programmers.co.kr/learn/courses/30/lessons/12903
