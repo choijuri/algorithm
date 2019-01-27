@@ -1,5 +1,6 @@
 
 public class Algorithm14 {
+    
 /* 탑  https://programmers.co.kr/learn/courses/30/lessons/42588
 
 수평 직선에 높이가 서로 다른 탑 N대를 세웠습니다. 모든 탑의 꼭대기에는 신호를 송/수신하는 장치를 설치했습니다.
