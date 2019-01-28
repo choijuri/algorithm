@@ -10,7 +10,7 @@
 2019.01.13 Algorithm10 쇠막대기  https://programmers.co.kr/learn/courses/30/lessons/42585?language=java                       
 2019.01.22 Algorithm11 문자열정수로 바꾸기  https://programmers.co.kr/learn/courses/30/lessons/12925?language=java                       
 2019.01.23 Algorithm12 가운데 글자 가져오기   https://programmers.co.kr/learn/courses/30/lessons/12903                                       
-2019.01.24 Algorithm13 수박수박수박수박수박수?    https://programmers.co.kr/learn/courses/30/lessons/12922
-2019.01.27 Algorithm14 탑  https://programmers.co.kr/learn/courses/30/lessons/42588                                        
+2019.01.24 Algorithm13 수박수박수박수박수박수?    https://programmers.co.kr/learn/courses/30/lessons/12922                            
+2019.01.27 Algorithm14 탑  https://programmers.co.kr/learn/courses/30/lessons/42588                                                              
 2019.01.27 Algorithm15 주식가격 https://programmers.co.kr/learn/courses/30/lessons/42584                                              
 2019.01.28 Algorithm16  올바른 괄호 https://programmers.co.kr/learn/courses/30/lessons/12909
