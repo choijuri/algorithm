@@ -1,6 +1,7 @@
 import java.util.Stack;
 
 public class Algotithm16 {
+    
     /* 올바른 괄호 https://programmers.co.kr/learn/courses/30/lessons/12909
 
     올바른 괄호란 두 개의 괄호 '(' 와 ')' 만으로 구성되어 있고, 괄호가 올바르게 짝지어진 문자열입니다.
