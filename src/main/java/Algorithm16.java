@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class Algotithm16 {
+public class Algorithm16 {
     
     /* 올바른 괄호 https://programmers.co.kr/learn/courses/30/lessons/12909
 
