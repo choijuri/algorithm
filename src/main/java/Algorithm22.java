@@ -1,5 +1,5 @@
 public class Algorithm22 {
-    /* 
+    /*
      */
     class Solution {
         boolean solution(String s) {
