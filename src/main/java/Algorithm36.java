@@ -1,5 +1,6 @@
 public class Algorithm36 {
 
+
     /*19.03.16 하샤드 수
     https://programmers.co.kr/learn/courses/30/lessons/12947?language=java
 
