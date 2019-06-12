@@ -1,55 +1,53 @@
 package algorithmexam;
 
-public class Algorithm41 {
-    /* 19.06.03 영어끝말잇기
-        https://programmers.co.kr/learn/courses/30/lessons/12981
+public class Algorithm42 {
+    /* 19.06.03 예상대진표
+        https://programmers.co.kr/learn/courses/30/lessons/12985
 
-        1부터 n까지 번호가 붙어있는 n명의 사람이 영어 끝말잇기를 하고 있습니다. 영어 끝말잇기는 다음과 같은 규칙으로 진행됩니다.
+        △△ 게임대회가 개최되었습니다. 이 대회는 N명이 참가하고, 토너먼트 형식으로 진행됩니다.
+        N명의 참가자는 각각 1부터 N번을 차례대로 배정받습니다.
+        그리고, 1번↔2번, 3번↔4번, ... , N-1번↔N번의 참가자끼리 게임을 진행합니다.
+        각 게임에서 이긴 사람은 다음 라운드에 진출할 수 있습니다.
+        이때, 다음 라운드에 진출할 참가자의 번호는 다시 1번부터 N/2번을 차례대로 배정받습니다.
+        만약 1번↔2번 끼리 겨루는 게임에서 2번이 승리했다면 다음 라운드에서 1번을 부여받고,
+        3번↔4번에서 겨루는 게임에서 3번이 승리했다면 다음 라운드에서 2번을 부여받게 됩니다.
+        게임은 최종 한 명이 남을 때까지 진행됩니다.
+5
+        이때, 처음 라운드에서 A번을 가진 참가자는 경쟁자로 생각하는 B번 참가자와 몇 번째 라운드에서 만나는지 궁금해졌습니다.
+        게임 참가자 수 N, 참가자 번호 A, 경쟁자 번호 B가 함수 solution의 매개변수로 주어질 때,
+        처음 라운드에서 A번을 가진 참가자는 경쟁자로 생각하는 B번 참가자와 몇 번째 라운드에서 만나는지
+        return 하는 solution 함수를 완성해 주세요.
+        단, A번 참가자와 B번 참가자는 서로 붙게 되기 전까지 항상 이긴다고 가정합니다.
 
-        1번부터 번호 순서대로 한 사람씩 차례대로 단어를 말합니다.
-        마지막 사람이 단어를 말한 다음에는 다시 1번부터 시작합니다.
-        앞사람이 말한 단어의 마지막 문자로 시작하는 단어를 말해야 합니다.
-        이전에 등장했던 단어는 사용할 수 없습니다.
-        한 글자인 단어는 인정되지 않습니다.
-        다음은 3명이 끝말잇기를 하는 상황을 나타냅니다.
+     */
 
-        tank → kick → know → wheel → land → dream → mother → robot → tank
+    class Solution
+    {
+        public int solution(int n, int a, int b)
+        {
+            int answer = 0;
+            for(int i=0; i<=n/2; i++) {
+                if (a != b ) {
+                    answer++;
 
-        위 끝말잇기는 다음과 같이 진행됩니다.
-
-        1번 사람이 자신의 첫 번째 차례에 tank를 말합니다.
-        2번 사람이 자신의 첫 번째 차례에 kick을 말합니다.
-        3번 사람이 자신의 첫 번째 차례에 know를 말합니다.
-        1번 사람이 자신의 두 번째 차례에 wheel을 말합니다.
-        (계속 진행)
-        끝말잇기를 계속 진행해 나가다 보면,
-        3번 사람이 자신의 세 번째 차례에 말한 tank 라는 단어는 이전에 등장했던 단어이므로 탈락하게 됩니다.
-
-        사람의 수 n과 사람들이 순서대로 말한 단어 words 가 매개변수로 주어질 때,
-        가장 먼저 탈락하는 사람의 번호와 그 사람이 자신의 몇 번째 차례에 탈락하는지를 구해서
-        return 하도록 solution 함수를 완성해주세요.
-
-         */
-    class Solution {
-        public int[] solution(int n, String[] words) {
-            int[] answer = {0,0};
-
-            for (int i = 0; i < words.length-1; i++) {
-                for (int j = i+1; j < words.length; j++) {
-                    if (words[i].equals(words[j])) {
-                        answer[1] = (j / n) +1;
-                        answer[0] = (j % n) +1;
+                    if (a % 2 == 0) {
+                        a = a / 2;
+                    } else {
+                        a = (a + 1) / 2;
                     }
-                }
-                if ((words[i].charAt(words[i].length() - 1)) != words[i + 1].charAt(0)) {
-                    if(answer[0]==0 || (answer[1] >=((i+1)/n+1) && answer[0] >= ((i+1)%n +1))){
-                        answer[1] = (i + 1) / n +1;
-                        answer[0] = (i + 1) % n +1;
-                        return answer;
+                    if (b % 2 == 0) {
+                        b = b / 2;
+                    } else {
+                        b = (b + 1) / 2;
                     }
+
+                }else {
+                    return answer;
                 }
             }
+
             return answer;
         }
     }
+
 }
