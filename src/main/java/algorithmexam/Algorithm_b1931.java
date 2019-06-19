@@ -1,4 +1,5 @@
-public class t_백준회의실배정1931 {
+public class Algorithm_b1931 {
+/*백준 회의실배정*/
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
