@@ -2,40 +2,46 @@ package algorithmexam;
 
 import java.util.Scanner;
 
-public class Algorithm_b1363 {
+public class Algorithm_b1316 {
     /*19.07.04 그룹 단어 체커
-    https://www.acmicpc.net/problem/1363
+    https://www.acmicpc.net/problem/1316
 
    문제
-    준규가 가지고 있는 동전은 총 N종류이고, 각각의 동전을 매우 많이 가지고 있다.
-    동전을 적절히 사용해서 그 가치의 합을 K로 만들려고 한다.
-    이때 필요한 동전 개수의 최솟값을 구하는 프로그램을 작성하시오.
+    그룹 단어란 단어에 존재하는 모든 문자에 대해서, 각 문자가 연속해서 나타나는 경우만을 말한다.
+    예를 들면, ccazzzzbb는 c, a, z, b가 모두 연속해서 나타나고,
+    kin도 k, i, n이 연속해서 나타나기 때문에 그룹 단어이지만,
+    aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.
+
+    단어 N개를 입력으로 받아 그룹 단어의 개수를 출력하는 프로그램을 작성하시오.
 
    입력
-    첫째 줄에 N과 K가 주어진다. (1 ≤ N ≤ 10, 1 ≤ K ≤ 100,000,000)
-    둘째 줄부터 N개의 줄에 동전의 가치 Ai가 오름차순으로 주어진다.
-    (1 ≤ Ai ≤ 1,000,000, A1 = 1, i ≥ 2인 경우에 Ai는 Ai-1의 배수)
+    첫째 줄에 단어의 개수 N이 들어온다. N은 100보다 작거나 같은 자연수이다.
+    둘째 줄부터 N개의 줄에 단어가 들어온다. 단어는 알파벳 소문자로만 되어있고 중복되지 않으며, 길이는 최대 100이다.
 
    출력
-    첫째 줄에 K원을 만드는데 필요한 동전 개수의 최솟값을 출력한다.
+    첫째 줄에 그룹 단어의 개수를 출력한다.
 */
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
         int answer = 0;
+        for (int i = 0; i < n; i++) {
+            String s = scanner.next();
+            int tmp = 0;
+            for (int j = 0; j < s.length(); j++) {
+                for (int k = j + 1; k < s.length(); k++) {
+                    if (s.charAt(j) == s.charAt(k) && s.charAt(j) != s.charAt(k - 1)) {
+                        tmp++;
+                        continue;
+                    }
 
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = sc.nextInt();
-        int[] v = new int[n];
-        for(int i=0; i<n; i++){
-            v[i] = sc.nextInt();
+                }
+            }
+            if (tmp == 0) {
+                answer++;
+            }
+
         }
-
-        for(int i=n-1; i>=0; i--){
-            answer += k/v[i];
-            k %= v[i];
-        }
-
         System.out.println(answer);
-        sc.close();
     }
 }
