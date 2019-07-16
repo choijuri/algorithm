@@ -2,53 +2,38 @@ package algorithmexam;
 
 import java.util.*;
 
-public class Algorithm_b7785 {
-    /*19.07.08 회사에 있는 사람
-    https://www.acmicpc.net/problem/7785
+public class Algorithm_b10809 {
+    /*19.07.08 알파벳찾기
+    https://www.acmicpc.net/problem/10809
 
    문제
-    상근이는 세계적인 소프트웨어 회사 기글에서 일한다.
-    이 회사의 가장 큰 특징은 자유로운 출퇴근 시간이다.
-    따라서, 직원들은 반드시 9시부터 6시까지 회사에 있지 않아도 된다.
-
-    각 직원은 자기가 원할 때 출근할 수 있고, 아무때나 퇴근할 수 있다.
-
-    상근이는 모든 사람의 출입카드 시스템의 로그를 가지고 있다.
-    이 로그는 어떤 사람이 회사에 들어왔는지, 나갔는지가 기록되어져 있다.
-    로그가 주어졌을 때, 현재 회사에 있는 모든 사람을 구하는 프로그램을 작성하시오.
+    알파벳 소문자로만 이루어진 단어 S가 주어진다. 각각의 알파벳에 대해서,
+    단어에 포함되어 있는 경우에는 처음 등장하는 위치를,
+    포함되어 있지 않은 경우에는 -1을 출력하는 프로그램을 작성하시오.
 
    입력
-    첫째 줄에 로그에 기록된 출입 기록의 수 n이 주어진다. (2 ≤ n ≤ 106)
-    다음 n개의 줄에는 출입 기록이 순서대로 주어지며, 각 사람의 이름이 주어지고 "enter"나 "leave"가 주어진다.
-    "enter"인 경우는 출근, "leave"인 경우는 퇴근이다.
-
-    회사에는 동명이인이 없으며, 대소문자가 다른 경우에는 다른 이름이다.
-    사람들의 이름은 알파벳 대소문자로 구성된 5글자 이하의 문자열이다.
+    첫째 줄에 단어 S가 주어진다. 단어의 길이는 100을 넘지 않으며, 알파벳 소문자로만 이루어져 있다.
 
    출력
-    현재 회사에 있는 사람의 이름을 사전 순의 역순으로 한 줄에 한 명씩 출력한다.
+    각각의 알파벳에 대해서, a가 처음 등장하는 위치, b가 처음 등장하는 위치, ... z가 처음 등장하는 위치를 공백으로 구분해서 출력한다.
+
+    만약, 어떤 알파벳이 단어에 포함되어 있지 않다면 -1을 출력한다. 단어의 첫 번째 글자는 0번째 위치이고, 두 번째 글자는 1번째 위치이다.
 */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        scanner.nextLine();
-        Set<String> set = new HashSet<>();
-        for (int i = 1; i <= n; i++) {
-            String[] s1 = scanner.nextLine().split("\\s");
-            if (s1[1].equals("enter")) {
-                set.add(s1[0]);
-            }else {
-                set.remove(s1[0]);
+        String s = scanner.nextLine();
+        int n = 0;
+        int[] num = {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+
+        for (int i = 0; i < s.length(); i++) {
+            n = s.charAt(i) - 97;
+            if (num[n] == -1) {
+                num[n] = i;
             }
         }
-
-        List<String> list = new ArrayList<>(set);
-        Collections.sort(list, Collections.reverseOrder());
-
-        for (String s : list) {
-            System.out.println(s);
+        for (int i = 0; i < 26; i++) {
+            System.out.print(num[i] + " ");
         }
-
 
     }
 

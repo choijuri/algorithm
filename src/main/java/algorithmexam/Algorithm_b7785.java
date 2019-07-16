@@ -1,46 +1,55 @@
 package algorithmexam;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
-public class Algorithm_b11399 {
-    /*19.06.13 ATM
-    https://www.acmicpc.net/problem/11399
+public class Algorithm_b7785 {
+    /*19.07.08 회사에 있는 사람
+    https://www.acmicpc.net/problem/7785
 
    문제
-    인하은행에는 ATM이 1대밖에 없다. 지금 이 ATM앞에 N명의 사람들이 줄을 서있다.
-    사람은 1번부터 N번까지 번호가 매겨져 있으며, i번 사람이 돈을 인출하는데 걸리는 시간은 Pi분이다.
+    상근이는 세계적인 소프트웨어 회사 기글에서 일한다.
+    이 회사의 가장 큰 특징은 자유로운 출퇴근 시간이다.
+    따라서, 직원들은 반드시 9시부터 6시까지 회사에 있지 않아도 된다.
 
-    사람들이 줄을 서는 순서에 따라서, 돈을 인출하는데 필요한 시간의 합이 달라지게 된다.
-    예를 들어, 총 5명이 있고, P1 = 3, P2 = 1, P3 = 4, P4 = 3, P5 = 2 인 경우를 생각해보자. [1, 2, 3, 4, 5] 순서로 줄을 선다면, 1번 사람은 3분만에 돈을 뽑을 수 있다. 2번 사람은 1번 사람이 돈을 뽑을 때 까지 기다려야 하기 때문에, 3+1 = 4분이 걸리게 된다. 3번 사람은 1번, 2번 사람이 돈을 뽑을 때까지 기다려야 하기 때문에, 총 3+1+4 = 8분이 필요하게 된다. 4번 사람은 3+1+4+3 = 11분, 5번 사람은 3+1+4+3+2 = 13분이 걸리게 된다. 이 경우에 각 사람이 돈을 인출하는데 필요한 시간의 합은 3+4+8+11+13 = 39분이 된다.
+    각 직원은 자기가 원할 때 출근할 수 있고, 아무때나 퇴근할 수 있다.
 
-    줄을 [2, 5, 1, 4, 3] 순서로 줄을 서면, 2번 사람은 1분만에, 5번 사람은 1+2 = 3분, 1번 사람은 1+2+3 = 6분, 4번 사람은 1+2+3+3 = 9분, 3번 사람은 1+2+3+3+4 = 13분이 걸리게 된다. 각 사람이 돈을 인출하는데 필요한 시간의 합은 1+3+6+9+13 = 32분이다. 이 방법보다 더 필요한 시간의 합을 최소로 만들 수는 없다.
-    줄을 서 있는 사람의 수 N과 각 사람이 돈을 인출하는데 걸리는 시간 Pi가 주어졌을 때,
-    각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 구하는 프로그램을 작성하시오.
+    상근이는 모든 사람의 출입카드 시스템의 로그를 가지고 있다.
+    이 로그는 어떤 사람이 회사에 들어왔는지, 나갔는지가 기록되어져 있다.
+    로그가 주어졌을 때, 현재 회사에 있는 모든 사람을 구하는 프로그램을 작성하시오.
 
    입력
-    첫째 줄에 사람의 수 N(1 ≤ N ≤ 1,000)이 주어진다.
-    둘째 줄에는 각 사람이 돈을 인출하는데 걸리는 시간 Pi가 주어진다. (1 ≤ Pi ≤ 1,000)
+    첫째 줄에 로그에 기록된 출입 기록의 수 n이 주어진다. (2 ≤ n ≤ 106)
+    다음 n개의 줄에는 출입 기록이 순서대로 주어지며, 각 사람의 이름이 주어지고 "enter"나 "leave"가 주어진다.
+    "enter"인 경우는 출근, "leave"인 경우는 퇴근이다.
+
+    회사에는 동명이인이 없으며, 대소문자가 다른 경우에는 다른 이름이다.
+    사람들의 이름은 알파벳 대소문자로 구성된 5글자 이하의 문자열이다.
 
    출력
-    첫째 줄에 각 사람이 돈을 인출하는데 필요한 시간의 합의 최솟값을 출력한다.
+    현재 회사에 있는 사람의 이름을 사전 순의 역순으로 한 줄에 한 명씩 출력한다.
 */
-
-
     public static void main(String[] args) {
-        int answer = 0;
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] p = new int[n];
-        for (int i = 0; i < n; i++) {
-            p[i] = sc.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        Set<String> set = new HashSet<>();
+        for (int i = 1; i <= n; i++) {
+            String[] s1 = scanner.nextLine().split("\\s");
+            if (s1[1].equals("enter")) {
+                set.add(s1[0]);
+            }else {
+                set.remove(s1[0]);
+            }
         }
-        Arrays.sort(p);
 
-        for (int i = 0; i < n; i++) {
-            answer += p[i] * (n - i);
+        List<String> list = new ArrayList<>(set);
+        Collections.sort(list, Collections.reverseOrder());
+
+        for (String s : list) {
+            System.out.println(s);
         }
-        System.out.println(answer);
+
+
     }
 
 }
